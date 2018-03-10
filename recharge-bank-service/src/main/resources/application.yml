@@ -14,4 +14,4 @@ server:
   port: 7111
 spring:  
   application:
-    name: bank-service  
+    name: bank-service 

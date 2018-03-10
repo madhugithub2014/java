@@ -4,6 +4,6 @@ import com.recharge.vo.Customer;
 
 public interface RechargeService {
 
-	String hello();
+	String getOffers(long mobilenum);
 	Customer recharge(long mobilenum,Customer customer);
 }

@@ -11,3 +11,23 @@ eureka:
 ribbon:
   eureka:
     enabled: true
+hystrix:
+  command:
+    default:
+      fallback:
+        enabled: true
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+      circuitBreaker:
+        requestVolumeThreshold: 4
+        sleepWindowInMilliseconds: 5000
+      metrics:
+        rollingStats:
+          timeInMilliseconds: 180000
+  threadpool:
+    default:
+      maxQueueSize: 50
+      queueSizeRejectionThreshold: 50
+      coreSize: 20

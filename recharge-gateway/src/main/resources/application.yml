@@ -22,7 +22,10 @@ server:
   port: 8765
 zuul: 
   prefix: /api
-  routes: 
+  routes:
+    recharge-service: 
+      path: /recharge-service/**
+      serviceId: recharge-service 
     bank-service: 
       path: /bank-service/**
       serviceId: bank-service

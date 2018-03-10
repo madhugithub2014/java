@@ -4,11 +4,11 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.recharge</groupId>
-    <artifactId>recharge-mobile</artifactId>
+    <artifactId>recharge-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>bank-service</artifactId>
-  <name>bank-service</name>
+  <artifactId>recharge-bank-service</artifactId>
+  <name>recharge-bank-service</name>
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

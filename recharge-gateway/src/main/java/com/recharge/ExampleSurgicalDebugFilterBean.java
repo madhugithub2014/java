@@ -21,13 +21,11 @@ public class ExampleSurgicalDebugFilterBean extends ZuulFilter{
 	        return 96;
 	    }
 
-	    @Override
 	    public boolean shouldFilter() {
 	        RequestContext.getCurrentContext().getRequest().getRequestURI().matches("/api/redirect.*");
 	        return true;
 	    }
 
-	    @Override
 	    public Object run() {
 
 	        try {

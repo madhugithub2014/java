@@ -4,12 +4,10 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.recharge</groupId>
-    <artifactId>recharge-mobile</artifactId>
+    <artifactId>recharge-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>com.recharge</groupId>
   <artifactId>recharge-registry</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <name>recharge-registry</name>
   <url>http://maven.apache.org</url>
   <properties>
@@ -19,7 +17,6 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
