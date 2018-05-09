@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: config-server
+  
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/madhugithub2014/recharge-config.git
+    
+security:
+  user:
+    password: password
+    
+server:
+  port: 8888 

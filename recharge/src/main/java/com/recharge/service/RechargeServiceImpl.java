@@ -47,10 +47,10 @@ public class RechargeServiceImpl implements RechargeService {
 
 	@FeignClient("bank-service")
 	interface PaymentClient {
-		@RequestMapping(value = "/offers/{serviceid}/{number}", method = RequestMethod.GET)
+		@RequestMapping(value = "/payment/offers/{serviceid}/{number}", method = RequestMethod.GET)
 		String offers(@PathVariable("serviceid") String serviceId, @PathVariable("number") long mobilenum);
 
-		@RequestMapping(value = "/mobile/{serviceid}/{number}", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
+		@RequestMapping(value = "/payment/mobile/{serviceid}/{number}", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
 		public Customer recharge(@PathVariable("serviceid") String serviceId, @PathVariable("number") long mobilenum,
 				@RequestBody Customer customer);
 	}

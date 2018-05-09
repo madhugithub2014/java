@@ -1,33 +1,12 @@
-server:
-  port: 7211
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-  instance:
-    leaseRenewalIntervalInSeconds: 10
-    metadataMap:
-      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
-ribbon:
-  eureka:
-    enabled: true
-hystrix:
-  command:
-    default:
-      fallback:
-        enabled: true
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 5000
-      circuitBreaker:
-        requestVolumeThreshold: 4
-        sleepWindowInMilliseconds: 5000
-      metrics:
-        rollingStats:
-          timeInMilliseconds: 180000
-  threadpool:
-    default:
-      maxQueueSize: 50
-      queueSizeRejectionThreshold: 50
-      coreSize: 20
+info:
+  build:
+    artifact: ${project.artifactId}
+    name: ${project.name}
+    description: ${project.description}
+    version: ${project.version}
+
+logging:
+  level:
+     org:
+       springframework:
+         security: DEBUG
