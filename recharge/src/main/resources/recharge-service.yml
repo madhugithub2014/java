@@ -50,10 +50,3 @@ hystrix:
       maxQueueSize: 50
       queueSizeRejectionThreshold: 50
       coreSize: 20
----
-spring:
-  application:
-    name: recharge-service
-  cloud:
-    config:
-      uri: ${vcap.services.config-server.credentials.uri:http://localhost:8888}

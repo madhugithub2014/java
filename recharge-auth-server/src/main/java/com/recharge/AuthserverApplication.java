@@ -44,7 +44,6 @@ public class AuthserverApplication extends WebMvcConfigurerAdapter {
 	}
 
 	@Configuration
-	// @Order(ManagementServerProperties.ACCESS_OVERRIDE_ORDER)
 	protected static class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 		@Override
@@ -54,8 +53,7 @@ public class AuthserverApplication extends WebMvcConfigurerAdapter {
 
 		@Override
 		protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-			auth.inMemoryAuthentication().withUser("madhugithub").roles("ADMIN").roles("USER").password("madhu");
-					
+			auth.inMemoryAuthentication().withUser("madhugit").roles("ADMIN").roles("USER").password("madhu");
 
 		}
 
@@ -87,7 +85,7 @@ public class AuthserverApplication extends WebMvcConfigurerAdapter {
 		public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 			clients.inMemory().withClient("recharge").secret("recharge").authorities("CLIENT")
 					.authorizedGrantTypes("authorization_code", "refresh_token", "client_credentials", "password")
-					.scopes("bharati_offers","bharati_recharge");
+					.scopes("read_recharge_offer","write_recharge","openid");
 		}
 
 		@Override

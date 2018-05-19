@@ -1,10 +1,10 @@
 info:
   app:
-    name: Recharge service
-    description: Recharge mobile
+    name: Bank service
+    description: Bank mobile
 
 server:
-  port: 7211
+  port: 7111
 
       
 security:
@@ -27,33 +27,3 @@ authserver:
   hostname: localhost
   port: 9999
   contextPath: uaa
-ribbon:
-  eureka:
-    enabled: true
-hystrix:
-  command:
-    default:
-      fallback:
-        enabled: true
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 5000
-      circuitBreaker:
-        requestVolumeThreshold: 4
-        sleepWindowInMilliseconds: 5000
-      metrics:
-        rollingStats:
-          timeInMilliseconds: 180000
-  threadpool:
-    default:
-      maxQueueSize: 50
-      queueSizeRejectionThreshold: 50
-      coreSize: 20
----
-spring:
-  application:
-    name: recharge-service
-  cloud:
-    config:
-      uri: ${vcap.services.config-server.credentials.uri:http://localhost:8888}

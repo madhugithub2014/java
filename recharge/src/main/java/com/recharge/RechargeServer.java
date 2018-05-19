@@ -37,9 +37,9 @@ public class RechargeServer {
 		@Override
 		public void configure(HttpSecurity http) throws Exception {
 			http.requestMatchers().and().authorizeRequests().antMatchers(HttpMethod.GET, "/recharge/**")
-					.access("#oauth2.hasScope('bharati_offers') and (hasRole('ROLE_ADMIN') or hasRole('ROLE_USER'))")
+					.access("#oauth2.hasScope('read_recharge_offer') and (hasRole('ROLE_ADMIN') or hasRole('ROLE_USER'))")
 					.antMatchers(HttpMethod.PUT, "/recharge/**")
-					.access("#oauth2.hasScope('bharati_recharge') and hasRole('ROLE_USER')");
+					.access("#oauth2.hasScope('write_recharge') and hasRole('ROLE_USER')");
 		}
 	}
 }

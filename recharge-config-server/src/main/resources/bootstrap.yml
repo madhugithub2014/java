@@ -4,13 +4,14 @@ spring:
   
   cloud:
     config:
+      enabled: false
       server:
         git:
           uri: https://github.com/madhugithub2014/recharge-config.git
     
 security:
   user:
-    password: password
+    password: msr@ndona18
     
 server:
-  port: 8888 
+  port: 8888

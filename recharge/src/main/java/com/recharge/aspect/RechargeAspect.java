@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Configuration
 @Aspect
-public class GuidAspect {
+public class RechargeAspect {
 	/**
 	 * Intercepts the controller and service calls to record their time
 	 * @param joinPoint
