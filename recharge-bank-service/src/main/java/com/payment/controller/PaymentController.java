@@ -50,13 +50,13 @@ public class PaymentController {
 		return rechargeOfferService.offers(serviceId, mobilenum);
 	}
 	
-	@PutMapping(value = "/topup/{serviceid}/{number}", consumes = "application/json", produces = "application/json")
+	/*@PutMapping(value = "/topup/{serviceid}/{number}", consumes = "application/json", produces = "application/json")
 	@ApiOperation(value = "offers", response = Offers.class)
 	public Offers getTarrifPacks(@PathVariable("serviceid") String serviceId,
 			@PathVariable("number") long mobilenum,@RequestBody Offers offers) {
 		// log.info("Offers for the mob={}",mobilenum);
 		return paymentService.topUp(serviceId, mobilenum,offers);
-	}
+	}*/
 
 	@PutMapping(value = "/mobile/{serviceid}/{number}", consumes = "application/json", produces = "application/json")
 	@ApiOperation(value = "payment for provided mobile number", response = Customer.class)

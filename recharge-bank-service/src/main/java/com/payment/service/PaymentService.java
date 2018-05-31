@@ -7,5 +7,5 @@ public interface PaymentService {
 
 	Customer recharge(String serviceId,long mobilenum,Customer customer);
 	
-	Offers topUp(String serviceId,long mobilenum,Offers offers);
+	//Offers topUp(String serviceId,long mobilenum,Offers offers);
 }

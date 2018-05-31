@@ -26,12 +26,12 @@ public class PaymentServiceImpl implements PaymentService {
 		return customer;
 	}
 	
-	@Override
+	/*@Override
 	public Offers topUp(String serviceId, long mobilenum,Offers offers) {
 		offers.setAmount(200);
 		offers.setDescription("1. Rs.200 -> 10GB + Free voice calls for 30 days");
 		return offers;
 		//log.info("Available offers for the mob={}", mobilenum);
 	}
-
+*/
 }
