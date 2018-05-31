@@ -10,6 +10,8 @@
 	<!-- <parent> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-parent</artifactId> 
 		<version>.RELEASE</version> </parent> -->
 	<properties>
+	     <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring-cloud.version>Camden.SR7</spring-cloud.version>
 		<spring-boot.version>1.5.6.RELEASE</spring-boot.version>
@@ -131,20 +133,26 @@
 		</pluginRepository>
 	</pluginRepositories>
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
-	<!-- <repositories> <repository> <id>spring-snapshots</id> <url>http://repo.spring.io/libs-snapshots</url> 
-		<snapshots> <enabled>true</enabled> </snapshots> </repository> </repositories> -->
-
+        <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.1</version>
+                    <configuration>
+                        <source>1.8</source>
+                        <target>1.8</target>
+                    </configuration>
+                </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 	<modules>
 		<module>recharge-registry</module>
 		<module>recharge-gateway</module>
-		<module>recharge</module>
+		<module>recharge-web</module>
 		<module>recharge-bank-service</module>
 		<module>recharge-hystrix-dashboard</module>
 		<module>recharge-config-server</module>

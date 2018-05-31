@@ -1,5 +1,7 @@
 package com.payment.service;
 
+import com.payment.vo.Offers;
+
 public interface RechargeOfferService {
-String offers(String serviceId,long mobilenum);
+	Offers offers(String serviceId,long mobilenum);	
 }

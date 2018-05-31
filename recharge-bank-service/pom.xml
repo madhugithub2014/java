@@ -7,6 +7,7 @@
     <artifactId>recharge-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
+  <groupId>com.web.recharge</groupId>
   <artifactId>recharge-bank-service</artifactId>
   <name>recharge-bank-service</name>
   <url>http://maven.apache.org</url>
