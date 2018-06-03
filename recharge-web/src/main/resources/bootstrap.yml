@@ -6,7 +6,12 @@ info:
 server:
   port: 7211
 
-      
+mongodb:
+  server:
+    host: localhost
+    port: 27017
+    dbname: rechargedb
+          
 security:
   oauth2:
     resource:

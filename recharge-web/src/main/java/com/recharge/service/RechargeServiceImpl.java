@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.recharge.vo.Customer;
-import com.recharge.vo.Offers;
+import com.recharge.vo.OffersTO;
 
 @Slf4j
 @Service
@@ -39,43 +39,12 @@ public class RechargeServiceImpl implements RechargeService {
 		return customer;
 	}
 
-	@HystrixCommand(fallbackMethod = "offersFallback")
-	public Offers getOffers(long mobilenum) {
-		Offers offers = client.getOffers(serviceId, mobilenum);
-		return offers;
-	}
-
-	public Offers offersFallback(long mobilenum) {
-		Offers offers = new Offers();
-		offers.setAmount(200);
-		offers.setDescription("try again");
-		return offers;
-	}
-
-	/*@HystrixCommand(fallbackMethod = "topUpFallback")
-	public Offers topUp(long mobilenum,Offers offers) {
-		Offers offer = client.topUp(serviceId, mobilenum,offers);
-		return offer;
-	}
-
-	public Offers topUpFallback(long mobilenum,Offers offers) {
-		offers.setDescription("failed");
-		return offers;
-	}*/
-
 	@FeignClient("bank-service")
 	interface PaymentClient {
-		@RequestMapping(value = "/payment/offers/{serviceid}/{number}", method = RequestMethod.GET, consumes = "application/json", produces = "application/json")
-		Offers getOffers(@PathVariable("serviceid") String serviceId,
-				@PathVariable("number") long mobilenum);
-
 		@RequestMapping(value = "/payment/mobile/{serviceid}/{number}", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
 		Customer recharge(@PathVariable("serviceid") String serviceId,
 				@PathVariable("number") long mobilenum,
 				@RequestBody Customer customer);
-		
-/*		@RequestMapping(value = "/payment/topup/{serviceid}/{number}", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
-		Offers topUp(@PathVariable("serviceid") String serviceId,
-				@PathVariable("number") long mobilenum,@RequestBody Offers offers);
-*/	}
+
+	}
 }

@@ -8,11 +8,9 @@ import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
-import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
+import org.springframework.context.annotation.Import;
+
+import com.recharge.config.DatasourceConfig;
 
 @Slf4j
 @EnableHystrix
@@ -20,6 +18,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 @EnableEurekaClient
 @EnableFeignClients
 @SpringBootApplication
+@Import(DatasourceConfig.class)
 public class RechargeServer {
 	public static void main(String[] args) {
 		final String classMethodName = "RechargeServer";
@@ -30,7 +29,7 @@ public class RechargeServer {
 		SpringApplication.run(RechargeServer.class, args);
 	}
 
-	@Configuration
+	/*@Configuration
 	@EnableResourceServer
 	static class ResourceServer extends ResourceServerConfigurerAdapter {
 
@@ -41,5 +40,5 @@ public class RechargeServer {
 					.antMatchers(HttpMethod.PUT, "/recharge/**")
 					.access("#oauth2.hasScope('write_recharge') and hasRole('ROLE_USER')");
 		}
-	}
+	}*/
 }
