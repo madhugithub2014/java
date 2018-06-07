@@ -71,14 +71,11 @@ public class RechargeController {
 
 	public static  void validateMobileNumber(String mobileNum){
 		
-		Predicate lengthValidate = num -> Pattern.compile("\\d{10}").matcher(mobileNum).find() == true;
+		Predicate lengthValidate = num -> Pattern.compile("\\d{10}").matcher(mobileNum).find();
 		Predicate numNullCheck =  num -> Optional.ofNullable(mobileNum).isPresent();
 		
 		if(!numNullCheck.and(lengthValidate).test(mobileNum)){
 			throw new RuntimeException("please provide valid phone number");
-		}else{
-			System.out.println("valid mobile number..");
 		}
-		
 	}
 	}
